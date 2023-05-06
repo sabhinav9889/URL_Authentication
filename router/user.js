@@ -16,18 +16,9 @@ const {handleGetAnalytics} = require('../controller/user');
 
 router.post('/', handleGenerateNewShortURL);
 
-console.log(User);
-
-router.get('/:shortid', async(req, res)=>{
-    const shortId = req.params.shortid;
-    const resul = await User.findOneAndUpdate({shortId:shortId},{ $push:{
-        visitHistory: {
-            timestamp: Date.now(),
-        },
-      }, 
-    });
-    if(resul===null) return res.send("Please enter valid Short-URL");
-    return res.redirect(resul.redirectURL);
+router.get('/', async (req, res)=>{
+    const id = await User.find({});
+    return res.render('home',{id:id});
 });
 
 router.get('/analytics/:shortId', handleGetAnalytics);

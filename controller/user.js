@@ -9,8 +9,7 @@ async function handleGenerateNewShortURL(req, res){
         redirectURL: body.url,
         visitHistory: [],
     });
-    console.log(result);
-    return res.json({ id: shortId});
+    return res.redirect('/url');
 }
 
 async function handleGetAnalytics(req, res){
@@ -18,6 +17,6 @@ async function handleGetAnalytics(req, res){
     const result = await User.find({shortId:shortId});
     return res.json({ TotalNumberOfVisits: result[0].visitHistory.length,
         analytics: result[0].visitHistory,
-    })
+    });
 }
 module.exports = {handleGenerateNewShortURL, handleGetAnalytics};

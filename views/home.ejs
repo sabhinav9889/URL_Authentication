@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><b>URL Shortner:- localhost:1000/myurl/Short-Id</b> </h1> <br> <br>
+    <form action="/url" method="post">
+        <div style="display: flex; justify-content: center; height: 6vh;">
+            <label for="url"></label>
+            <input type="text" id="url" placeholder="Enter Your URL" name="url" size="120">
+            <input type="submit" style="cursor:pointer" >
+        </div>
+    </form>
+    <%if(id.length){%>
+        <table>
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>Short-Id</th>
+                    <th>Number of visits</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% id.forEach(e=>{%>
+                <tr>
+                    <td><%= e.redirectURL%></td>
+                    <td><%= e.shortId%></td>
+                    <td><%= e.visitHistory.length %></td>
+                </tr>
+                <%})%>
+            </tbody>
+        </table>
+    <%}%>
+</body>
+</html>

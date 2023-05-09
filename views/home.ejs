@@ -20,16 +20,16 @@
             <thead>
                 <tr>
                     <th>URL</th>
-                    <th>Short-Id</th>
-                    <th>Number of visits</th>
+                    <th>Visits</th>
+                    <th>Short-Url</th>
                 </tr>
             </thead>
             <tbody>
                 <% id.forEach(e=>{%>
                 <tr>
                     <td><%= e.redirectURL%></td>
-                    <td><%= e.shortId%></td>
                     <td><%= e.visitHistory.length %></td>
+                    <td>http://localhost:1000/myurl/<%= e.shortId%></td>
                 </tr>
                 <%})%>
             </tbody>

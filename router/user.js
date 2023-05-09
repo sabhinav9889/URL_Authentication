@@ -21,6 +21,7 @@ router.get('/', async (req, res)=>{
     return res.render('home',{id:id});
 });
 
+
 router.get('/analytics/:shortId', handleGetAnalytics);
 
 module.exports = router;
